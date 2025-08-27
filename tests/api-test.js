@@ -16,7 +16,7 @@ function testJsonData() {
     const rawData = fs.readFileSync(dataPath, 'utf8')
     const data = JSON.parse(rawData)
 
-    console.log(`✓ JSON is valid`)
+    console.log('✓ JSON is valid')
     console.log(`✓ Contains ${data.apartments.length} apartments`)
     console.log(`✓ Meta data present: ${JSON.stringify(data.meta.filters)}`)
 
@@ -41,7 +41,7 @@ function testJsonData() {
       }
     }
 
-    console.log(`✓ Apartment structure is valid`)
+    console.log('✓ Apartment structure is valid')
 
     return data
   }

@@ -6,8 +6,13 @@
 
 // Critical layout styles with inline values to avoid import conflicts
 html {
-  font-family: "PT Root UI", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, sans-serif;
+  font-family:
+    'PT Root UI',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-size: 16px;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
@@ -19,8 +24,13 @@ body {
   padding: 0;
   background-color: #ffffff;
   color: #111827;
-  font-family: "PT Root UI", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, sans-serif;
+  font-family:
+    'PT Root UI',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
 }
 
 // Critical container styles
@@ -68,8 +78,13 @@ body {
   font-size: 14px;
   color: #6b7280;
   text-align: center;
-  font-family: "PT Root UI", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, sans-serif;
+  font-family:
+    'PT Root UI',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
 }
 
 .loading-spinner--small .loading-spinner__text {
@@ -215,8 +230,13 @@ body {
 
 // Critical page title styles - fixed size on all resolutions
 .page-title {
-  font-family: "PT Root UI", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, sans-serif;
+  font-family:
+    'PT Root UI',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-weight: 700;
   font-size: 48px !important;
   line-height: 50px !important;

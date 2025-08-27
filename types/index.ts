@@ -22,7 +22,6 @@ export interface FilterParams {
   priceRange: [number, number]
   areaRange: [number, number]
   rooms: number[]
-  floors: [number, number]
 }
 
 export interface PaginationParams {
@@ -58,7 +57,6 @@ export interface FilterMetadata {
   priceRange: [number, number]
   areaRange: [number, number]
   roomsAvailable: number[]
-  floorsRange: [number, number]
 }
 
 export interface ApiError {
@@ -121,10 +119,6 @@ export interface FilterValidationRules {
   }
   rooms: {
     available: number[]
-  }
-  floors: {
-    min: number
-    max: number
   }
 }
 

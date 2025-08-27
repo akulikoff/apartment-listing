@@ -10,7 +10,6 @@ export const DEFAULT_FILTER_PARAMS: FilterParams = {
   priceRange: [0, 100_000_000],
   areaRange: [1, 1000],
   rooms: [],
-  floors: [1, 50],
 }
 
 export const DEFAULT_PAGINATION_PARAMS: PaginationParams = {
@@ -23,7 +22,6 @@ export const DEFAULT_FILTER_METADATA: FilterMetadata = {
   priceRange: [0, 100_000_000],
   areaRange: [1, 1000],
   roomsAvailable: [1, 2, 3, 4],
-  floorsRange: [1, 50],
 }
 
 // ============================================================================
@@ -82,10 +80,7 @@ export const VALIDATION_LIMITS = {
     min: 1,
     max: 6,
   },
-  floors: {
-    min: 1,
-    max: 50,
-  },
+
   pagination: {
     minLimit: 1,
     maxLimit: 100,

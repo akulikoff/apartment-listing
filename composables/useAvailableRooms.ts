@@ -27,16 +27,12 @@ export const useAvailableRooms = (
       = currentFilters.value.areaRange[0] !== metadata.value.areaRange[0]
         || currentFilters.value.areaRange[1] !== metadata.value.areaRange[1]
 
-    const floorFiltered
-      = currentFilters.value.floors[0] !== metadata.value.floorsRange[0]
-        || currentFilters.value.floors[1] !== metadata.value.floorsRange[1]
-
-    return priceFiltered || areaFiltered || floorFiltered
+    return priceFiltered || areaFiltered
   })
 
   /**
    * Calculate which room types are available in the current apartment list
-   * Only applies filtering if other filters (price/area/floor) are active
+   * Only applies filtering if other filters (price/area) are active
    */
   const availableRooms = computed(() => {
     if (!apartments.value || apartments.value.length === 0) {

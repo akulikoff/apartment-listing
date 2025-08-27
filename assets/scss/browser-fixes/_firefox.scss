@@ -1,6 +1,6 @@
 // Firefox-specific fixes
-@use "../variables" as *;
-@use "../mixins" as *;
+@use '../variables' as *;
+@use '../mixins' as *;
 
 .firefox {
   // Fix for range input styling in Firefox

@@ -1,6 +1,6 @@
 // Safari-specific fixes
-@use "../variables" as *;
-@use "../mixins" as *;
+@use '../variables' as *;
+@use '../mixins' as *;
 
 .safari {
   // Fix for range input styling in Safari

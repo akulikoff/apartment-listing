@@ -1,19 +1,19 @@
 // Use modern @use syntax instead of deprecated @import
-@use "variables" as *;
-@use "mixins" as *;
-@use "animations";
+@use 'variables' as *;
+@use 'mixins' as *;
+@use 'animations';
 
 // Browser-specific fixes
-@use "browser-fixes/chrome";
-@use "browser-fixes/firefox";
-@use "browser-fixes/safari";
+@use 'browser-fixes/chrome';
+@use 'browser-fixes/firefox';
+@use 'browser-fixes/safari';
 
 // Use components
-@use "components/filter-panel";
-@use "components/apartment-card";
-@use "components/apartment-table-header";
-@use "components/scroll-to-top-button";
-@use "components/apartments-list";
+@use 'components/filter-panel';
+@use 'components/apartment-card';
+@use 'components/apartment-table-header';
+@use 'components/scroll-to-top-button';
+@use 'components/apartments-list';
 
 // Global styles
 * {

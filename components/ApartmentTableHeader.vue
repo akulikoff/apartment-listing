@@ -112,7 +112,7 @@ interface Props {
 }
 
 interface Emits {
-  (e: 'sort', field: string, order: 'asc' | 'desc'): void
+  (_e: 'sort', _field: string, _order: 'asc' | 'desc'): void
 }
 
 const props = withDefaults(defineProps<Props>(), {

@@ -1,0 +1,43 @@
+# Build outputs
+.nuxt/
+.output/
+dist/
+build/
+
+# Dependencies
+node_modules/
+
+# Generated files
+*.d.ts
+
+# Logs
+*.log
+
+# Cache
+.cache/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Coverage
+coverage/
+
+# Static assets that shouldn't be formatted
+public/
+static/
+assets/fonts/
+assets/images/
+
+# Configuration files that have specific formatting
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

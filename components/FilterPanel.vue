@@ -33,11 +33,15 @@
           <div class="range-inputs">
             <div class="range-value">
               <span class="range-value__label">от</span>
-              <span class="range-value__number">{{ localFilters.priceRange[0] }}</span>
+              <span class="range-value__number">{{
+                localFilters.priceRange[0]
+              }}</span>
             </div>
             <div class="range-value">
               <span class="range-value__label">до</span>
-              <span class="range-value__number">{{ localFilters.priceRange[1] }}</span>
+              <span class="range-value__number">{{
+                localFilters.priceRange[1]
+              }}</span>
             </div>
           </div>
 
@@ -46,13 +50,16 @@
               class="range-slider__highlight"
               :style="{
                 left: `${
-                  ((localFilters.priceRange[0] - (metadata?.priceRange[0] || 0))
-                    / ((metadata?.priceRange[1] || 1) - (metadata?.priceRange[0] || 0)))
+                  ((localFilters.priceRange[0]
+                    - (metadata?.priceRange[0] || 0))
+                    / ((metadata?.priceRange[1] || 1)
+                      - (metadata?.priceRange[0] || 0)))
                   * 100
                 }%`,
                 width: `${
                   ((localFilters.priceRange[1] - localFilters.priceRange[0])
-                    / ((metadata?.priceRange[1] || 1) - (metadata?.priceRange[0] || 0)))
+                    / ((metadata?.priceRange[1] || 1)
+                      - (metadata?.priceRange[0] || 0)))
                   * 100
                 }%`,
               }"
@@ -63,6 +70,7 @@
               class="range-slider__input range-slider__input--min"
               :min="metadata?.priceRange[0] || 0"
               :max="metadata?.priceRange[1] || 999999999"
+              :step="1000"
               :disabled="loading || disabled"
               @input="validateAndEmit"
             >
@@ -72,6 +80,7 @@
               class="range-slider__input range-slider__input--max"
               :min="metadata?.priceRange[0] || 0"
               :max="metadata?.priceRange[1] || 999999999"
+              :step="1000"
               :disabled="loading || disabled"
               @input="validateAndEmit"
             >
@@ -87,11 +96,15 @@
           <div class="range-inputs">
             <div class="range-value">
               <span class="range-value__label">от</span>
-              <span class="range-value__number">{{ localFilters.areaRange[0] }}</span>
+              <span class="range-value__number">{{
+                localFilters.areaRange[0]
+              }}</span>
             </div>
             <div class="range-value">
               <span class="range-value__label">до</span>
-              <span class="range-value__number">{{ localFilters.areaRange[1] }}</span>
+              <span class="range-value__number">{{
+                localFilters.areaRange[1]
+              }}</span>
             </div>
           </div>
 
@@ -101,12 +114,14 @@
               :style="{
                 left: `${
                   ((localFilters.areaRange[0] - (metadata?.areaRange[0] || 0))
-                    / ((metadata?.areaRange[1] || 1) - (metadata?.areaRange[0] || 0)))
+                    / ((metadata?.areaRange[1] || 1)
+                      - (metadata?.areaRange[0] || 0)))
                   * 100
                 }%`,
                 width: `${
                   ((localFilters.areaRange[1] - localFilters.areaRange[0])
-                    / ((metadata?.areaRange[1] || 1) - (metadata?.areaRange[0] || 0)))
+                    / ((metadata?.areaRange[1] || 1)
+                      - (metadata?.areaRange[0] || 0)))
                   * 100
                 }%`,
               }"
@@ -117,6 +132,7 @@
               class="range-slider__input range-slider__input--min"
               :min="metadata?.areaRange[0] || 0"
               :max="metadata?.areaRange[1] || 999"
+              :step="0.1"
               :disabled="loading || disabled"
               @input="validateAndEmit"
             >
@@ -126,6 +142,7 @@
               class="range-slider__input range-slider__input--max"
               :min="metadata?.areaRange[0] || 0"
               :max="metadata?.areaRange[1] || 999"
+              :step="0.1"
               :disabled="loading || disabled"
               @input="validateAndEmit"
             >
@@ -235,10 +252,6 @@ const validateAndEmit = () => {
     localFilters.value.areaRange[1] = localFilters.value.areaRange[0]
   }
 
-  if (localFilters.value.floors[0] > localFilters.value.floors[1]) {
-    localFilters.value.floors[1] = localFilters.value.floors[0]
-  }
-
   // Emit the validated filters
   emit('filter-change', { ...localFilters.value })
 }
@@ -258,8 +271,3 @@ const resetFilters = () => {
   emit('reset-filters')
 }
 </script>
-
-<style lang="scss" scoped>
-// Component-specific styles are now in assets/scss/components/_filter-panel.scss
-// Only component-specific overrides or unique styles go here if needed
-</style>

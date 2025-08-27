@@ -59,8 +59,8 @@ const handleClick = () => {
 </script>
 
 <style lang="scss" scoped>
-@use "~/assets/scss/variables" as *;
-@use "~/assets/scss/mixins" as *;
+@use '~/assets/scss/variables' as *;
+@use '~/assets/scss/mixins' as *;
 
 .load-more-container {
   display: flex;
@@ -83,7 +83,9 @@ const handleClick = () => {
   font-size: 14px;
   font-weight: 500;
   cursor: pointer;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .load-more-button:hover:not(:disabled) {

@@ -1,5 +1,5 @@
-@use "../variables" as *;
-@use "../mixins" as *;
+@use '../variables' as *;
+@use '../mixins' as *;
 
 .table-header {
   display: none; // Hidden by default, shown only on desktop
@@ -30,7 +30,10 @@
 }
 
 .table-header__sort-icon {
-  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    color 0.2s ease;
   color: color(gray-500);
   opacity: 0.8;
 }
@@ -54,7 +57,9 @@
 .table-header__arrow {
   width: 8px;
   height: 5px;
-  transition: filter 0.2s ease, opacity 0.2s ease;
+  transition:
+    filter 0.2s ease,
+    opacity 0.2s ease;
   opacity: 0.7;
   flex-shrink: 0;
   filter: brightness(0) saturate(100%) invert(60%) sepia(8%) saturate(872%)

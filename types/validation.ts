@@ -24,10 +24,6 @@ export const DEFAULT_VALIDATION_RULES: FilterValidationRules = {
   rooms: {
     available: [1, 2, 3, 4],
   },
-  floors: {
-    min: 1,
-    max: 50,
-  },
 }
 
 // ============================================================================
@@ -99,31 +95,6 @@ export const validateFilterParams = (
       field: 'rooms',
       message: `Недопустимое количество комнат: ${invalidRooms.join(', ')}`,
       code: 'ROOMS_INVALID',
-    })
-  }
-
-  // Validate floors
-  if (filters.floors[0] < rules.floors.min) {
-    errors.push({
-      field: 'floors',
-      message: `Минимальный этаж не может быть меньше ${rules.floors.min}`,
-      code: 'FLOOR_MIN_INVALID',
-    })
-  }
-
-  if (filters.floors[1] > rules.floors.max) {
-    errors.push({
-      field: 'floors',
-      message: `Максимальный этаж не может быть больше ${rules.floors.max}`,
-      code: 'FLOOR_MAX_INVALID',
-    })
-  }
-
-  if (filters.floors[0] > filters.floors[1]) {
-    errors.push({
-      field: 'floors',
-      message: 'Минимальный этаж не может быть больше максимального',
-      code: 'FLOOR_RANGE_INVALID',
     })
   }
 
@@ -295,10 +266,6 @@ export const sanitizeFilterParams = (
     rooms: (filters.rooms ?? []).filter(room =>
       DEFAULT_VALIDATION_RULES.rooms.available.includes(room),
     ),
-    floors: [
-      Math.max(1, filters.floors?.[0] ?? 1),
-      Math.min(50, filters.floors?.[1] ?? 50),
-    ],
   }
 }
 

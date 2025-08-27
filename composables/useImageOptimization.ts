@@ -15,11 +15,17 @@ export const useImageOptimization = () => {
     src: string,
     width: number,
     height: number,
-    _quality: number = 80,
+    quality: number = 80,
   ): string => {
     // For now, return original src since we don't have image processing server
     // In production, this would generate URLs like:
     // `/api/images?src=${encodeURIComponent(src)}&w=${width}&h=${height}&q=${quality}`
+
+    // Suppress unused parameter warnings for future implementation
+    void width
+    void height
+    void quality
+
     return src
   }
 

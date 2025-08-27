@@ -9,15 +9,21 @@
       <div class="apartment-card__content">
         <div class="apartment-card__info">
           <h3 class="apartment-card__title">
-            {{ apartment.rooms }}-комнатная квартира №{{ apartment.id.replace('apt_', '') }}
+            {{ apartment.rooms }}-комнатная квартира №{{
+              apartment.id.replace('apt_', '')
+            }}
           </h3>
           <div class="apartment-card__details">
             <span class="apartment-card__area">{{ apartment.area }} м²</span>
             <span class="apartment-card__floor">
-              <span class="apartment-card__floor-current">{{ apartment.floor }}</span>
+              <span class="apartment-card__floor-current">{{
+                apartment.floor
+              }}</span>
               <span class="apartment-card__floor-total">из {{ apartment.totalFloors }}</span>
             </span>
-            <span class="apartment-card__price">{{ formatPrice(apartment.price) }}</span>
+            <span class="apartment-card__price">{{
+              formatPrice(apartment.price)
+            }}</span>
           </div>
         </div>
 
@@ -72,7 +78,9 @@
       <div class="apartment-row__cell apartment-row__cell--description">
         <div class="apartment-row__description-content">
           <div class="apartment-row__title">
-            {{ apartment.rooms }}-комнатная №{{ apartment.id.replace('apt_', '') }}
+            {{ apartment.rooms }}-комнатная №{{
+              apartment.id.replace('apt_', '')
+            }}
           </div>
         </div>
       </div>
@@ -129,8 +137,3 @@ const onImageLoad = (event: Event) => {
   img.style.visibility = 'visible'
 }
 </script>
-
-<style lang="scss" scoped>
-// Component styles are now in assets/scss/components/_apartment-card.scss
-// Only component-specific overrides or unique styles go here if needed
-</style>

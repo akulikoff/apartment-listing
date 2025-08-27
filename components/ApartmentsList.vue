@@ -165,11 +165,15 @@ const {
   updatePriceRange,
   updateAreaRange,
   updateRooms,
-  updateFloorsRange,
   applyUrlFilters,
 } = useFilters()
 
-const { watchUrlFilters, clearUrlFilters, updateUrlWithFilters, parseFiltersFromUrl } = useUrlFilters()
+const {
+  watchUrlFilters,
+  clearUrlFilters,
+  updateUrlWithFilters,
+  parseFiltersFromUrl,
+} = useUrlFilters()
 
 const { isVisible: showScrollToTop, scrollToTop } = useScrollToTop()
 
@@ -188,9 +192,7 @@ const sortOrder = ref<'asc' | 'desc'>('asc')
 measureRenderTime('ApartmentListingPage')
 
 // Computed properties
-const hasError = computed(
-  () => !!(apartmentsError.value || filtersError.value),
-)
+const hasError = computed(() => !!(apartmentsError.value || filtersError.value))
 const errorMessage = computed(
   () => apartmentsError.value || filtersError.value || 'Неизвестная ошибка',
 )
@@ -202,7 +204,6 @@ const handleFilterChange = (newFilters: FilterParams) => {
     updatePriceRange(newFilters.priceRange)
     updateAreaRange(newFilters.areaRange)
     updateRooms(newFilters.rooms)
-    updateFloorsRange(newFilters.floors)
   }
   catch (error) {
     console.error('Error applying filters:', error)
@@ -266,9 +267,7 @@ const handleSort = (field: string, order: 'asc' | 'desc') => {
 
     const aStr = String(aValue).toLowerCase()
     const bStr = String(bValue).toLowerCase()
-    return order === 'asc'
-      ? aStr.localeCompare(bStr)
-      : bStr.localeCompare(aStr)
+    return order === 'asc' ? aStr.localeCompare(bStr) : bStr.localeCompare(aStr)
   })
 }
 
@@ -278,7 +277,6 @@ watch(
   (newMetadata) => {
     if (newMetadata && !metadata.value) {
       initializeFilters(newMetadata)
-      
       // After metadata is initialized, check for URL filters and apply them
       nextTick(() => {
         if (import.meta.client) {
@@ -295,7 +293,12 @@ watch(
 
 // Watch for URL filter changes (for navigation between pages with different filters)
 watchUrlFilters((urlFilters) => {
-  if (urlFilters && metadata.value && Object.keys(urlFilters).length > 0 && !initialLoading.value) {
+  if (
+    urlFilters
+    && metadata.value
+    && Object.keys(urlFilters).length > 0
+    && !initialLoading.value
+  ) {
     applyUrlFilters(urlFilters)
   }
 })
@@ -306,15 +309,20 @@ watch(
   (newFilters) => {
     if (metadata.value && import.meta.client) {
       const defaultFilters = {
-        priceRange: [...metadata.value.priceRange],
-        areaRange: [...metadata.value.areaRange],
+        priceRange: [
+          metadata.value.priceRange[0],
+          metadata.value.priceRange[1],
+        ] as [number, number],
+        areaRange: [
+          metadata.value.areaRange[0],
+          metadata.value.areaRange[1],
+        ] as [number, number],
         rooms: [],
-        floors: [...metadata.value.floorsRange],
       }
       updateUrlWithFilters(newFilters, defaultFilters)
     }
   },
-  { deep: true }
+  { deep: true },
 )
 
 // Initialize data on mount

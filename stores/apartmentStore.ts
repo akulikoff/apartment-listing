@@ -93,10 +93,6 @@ export const useApartmentStore = defineStore('apartment', {
           if (filters.rooms && filters.rooms.length > 0) {
             params.append('rooms', filters.rooms.join(','))
           }
-          if (filters.floors) {
-            params.append('floorMin', filters.floors[0].toString())
-            params.append('floorMax', filters.floors[1].toString())
-          }
         }
 
         // Use cached fetch with performance monitoring

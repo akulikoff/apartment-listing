@@ -10,11 +10,11 @@ export const useLocalStorage = <T>(
   defaultValue: T,
   options: {
     serializer?: {
-      read: (value: string) => T
-      write: (value: T) => string
+      read: (_value: string) => T
+      write: (_value: T) => string
     }
   } = {},
-): [Ref<T>, (_value: T) => void, () => void] => {
+): [Ref<T>, (value: T) => void, () => void] => {
   const {
     serializer = {
       read: JSON.parse,
@@ -94,7 +94,7 @@ export const useFilterPersistence = () => {
         priceRange: filters.priceRange,
         areaRange: filters.areaRange,
         rooms: filters.rooms,
-        floors: filters.floors,
+
         timestamp: Date.now(),
       }
       localStorage.setItem(STORAGE_KEY, JSON.stringify(filtersToSave))
@@ -124,7 +124,6 @@ export const useFilterPersistence = () => {
         priceRange: parsed.priceRange || [3200000, 25000000],
         areaRange: parsed.areaRange || [25.5, 150.0],
         rooms: parsed.rooms || [],
-        floors: parsed.floors || [1, 20],
       }
     }
     catch (error) {

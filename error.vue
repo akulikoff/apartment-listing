@@ -53,8 +53,8 @@ useHead({
 </script>
 
 <style lang="scss" scoped>
-@use "~/assets/scss/variables" as *;
-@use "~/assets/scss/mixins" as *;
+@use '~/assets/scss/variables' as *;
+@use '~/assets/scss/mixins' as *;
 .error-page {
   min-height: 100vh;
   display: flex;

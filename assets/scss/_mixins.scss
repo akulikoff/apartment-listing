@@ -1,6 +1,6 @@
 // Import map module for modern Sass
-@use "sass:map";
-@use "variables" as *;
+@use 'sass:map';
+@use 'variables' as *;
 
 // Helper function to get values from maps
 @function get($map, $key) {

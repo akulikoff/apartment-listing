@@ -1,6 +1,6 @@
 // Chrome-specific fixes
-@use "../variables" as *;
-@use "../mixins" as *;
+@use '../variables' as *;
+@use '../mixins' as *;
 
 .chrome {
   // Fix for range input styling in Chrome

@@ -24,8 +24,8 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <style lang="scss" scoped>
-@use "~/assets/scss/variables" as *;
-@use "~/assets/scss/mixins" as *;
+@use '~/assets/scss/variables' as *;
+@use '~/assets/scss/mixins' as *;
 
 .loading-spinner {
   display: flex;

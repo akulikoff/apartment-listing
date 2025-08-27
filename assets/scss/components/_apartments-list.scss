@@ -14,8 +14,13 @@
 }
 
 .page-title {
-  font-family: "PT Root UI", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, sans-serif;
+  font-family:
+    'PT Root UI',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
   font-weight: 700;
   font-size: 48px !important;
   line-height: 50px !important;
@@ -65,7 +70,7 @@
 
 .error-title,
 .empty-title {
-  font-family: "PT Root UI";
+  font-family: 'PT Root UI';
   font-size: 20px;
   font-weight: 600;
   color: #1a1a1a;
@@ -74,7 +79,7 @@
 
 .error-message,
 .empty-message {
-  font-family: "PT Root UI";
+  font-family: 'PT Root UI';
   font-size: 16px;
   color: #666666;
   margin: 0 0 24px 0;
@@ -88,7 +93,7 @@
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
-  font-family: "PT Root UI";
+  font-family: 'PT Root UI';
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
