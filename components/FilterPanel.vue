@@ -191,8 +191,10 @@ interface Props {
 }
 
 interface Emits {
-  (_e: 'filter-change', _filters: FilterParams): void
-  (_e: 'reset-filters'): void
+  // eslint-disable-next-line no-unused-vars
+  (event: 'filter-change', filters: FilterParams): void
+  // eslint-disable-next-line no-unused-vars
+  (event: 'reset-filters'): void
 }
 
 const props = withDefaults(defineProps<Props>(), {

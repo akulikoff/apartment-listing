@@ -112,7 +112,8 @@ interface Props {
 }
 
 interface Emits {
-  (_e: 'sort', _field: string, _order: 'asc' | 'desc'): void
+  // eslint-disable-next-line no-unused-vars
+  (event: 'sort', field: string, order: 'asc' | 'desc'): void
 }
 
 const props = withDefaults(defineProps<Props>(), {

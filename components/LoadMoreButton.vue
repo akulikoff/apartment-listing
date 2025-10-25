@@ -31,7 +31,8 @@ interface Props {
 }
 
 interface Emits {
-  (_e: 'load-more'): void
+  // eslint-disable-next-line no-unused-vars
+  (event: 'load-more'): void
 }
 
 const props = withDefaults(defineProps<Props>(), {

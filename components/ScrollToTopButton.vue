@@ -26,7 +26,8 @@ interface Props {
 }
 
 interface Emits {
-  (_e: 'scroll-to-top'): void
+  // eslint-disable-next-line no-unused-vars
+  (event: 'scroll-to-top'): void
 }
 
 const props = withDefaults(defineProps<Props>(), {

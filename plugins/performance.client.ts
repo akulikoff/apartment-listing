@@ -35,7 +35,13 @@ export default defineNuxtPlugin(() => {
       const entries = list.getEntries()
       entries.forEach((entry) => {
         if (import.meta.dev) {
-          console.log('FID:', entry.processingStart - entry.startTime)
+          // Type assertion for FID entry which has processingStart
+          const fidEntry = entry as PerformanceEntry & {
+            processingStart?: number
+          }
+          if (fidEntry.processingStart !== undefined) {
+            console.log('FID:', fidEntry.processingStart - entry.startTime)
+          }
         }
       })
     })

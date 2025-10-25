@@ -10,10 +10,13 @@ export const useLocalStorage = <T>(
   defaultValue: T,
   options: {
     serializer?: {
-      read: (_value: string) => T
-      write: (_value: T) => string
+      // eslint-disable-next-line no-unused-vars
+      read: (value: string) => T
+      // eslint-disable-next-line no-unused-vars
+      write: (value: T) => string
     }
   } = {},
+  // eslint-disable-next-line no-unused-vars
 ): [Ref<T>, (value: T) => void, () => void] => {
   const {
     serializer = {

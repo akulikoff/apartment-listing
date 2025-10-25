@@ -149,13 +149,14 @@ export const useUrlFilters = () => {
    * @param callback - Function to call when URL filters change
    */
   const watchUrlFilters = (
-    callback: (_filters: Partial<FilterParams> | null) => void,
+    // eslint-disable-next-line no-unused-vars
+    callback: (filters: Partial<FilterParams> | null) => void,
   ) => {
     return watch(
       () => route.query,
       () => {
-        const _filters = parseFiltersFromUrl()
-        callback(_filters)
+        const filters = parseFiltersFromUrl()
+        callback(filters)
       },
       { immediate: true },
     )

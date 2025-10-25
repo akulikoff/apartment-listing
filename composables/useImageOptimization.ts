@@ -52,7 +52,7 @@ export const useImageOptimization = () => {
    * @param options - Intersection observer options
    */
   const createLazyLoadObserver = (
-    callback: (_entries: IntersectionObserverEntry[]) => void,
+    callback: () => void,
     options: IntersectionObserverInit = {},
   ): IntersectionObserver | null => {
     if (typeof window === 'undefined' || !('IntersectionObserver' in window)) {

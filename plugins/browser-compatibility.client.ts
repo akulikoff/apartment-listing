@@ -25,14 +25,19 @@ export default defineNuxtPlugin(() => {
       })
       .catch(() => {
         // Fallback smooth scroll implementation
-        const originalScrollTo = window.scrollTo
-        window.scrollTo = function (
-          options: ScrollToOptions | number,
+        const originalScrollTo = window.scrollTo.bind(window)
+
+        // Override scrollTo with proper overloads
+        window.scrollTo = ((
+          optionsOrX: ScrollToOptions | number,
           y?: number,
-        ) {
-          if (typeof options === 'object' && options.behavior === 'smooth') {
+        ) => {
+          if (
+            typeof optionsOrX === 'object'
+            && optionsOrX.behavior === 'smooth'
+          ) {
             const startY = window.pageYOffset
-            const targetY = options.top || 0
+            const targetY = optionsOrX.top || 0
             const distance = targetY - startY
             const duration = 500
             let start: number
@@ -41,7 +46,7 @@ export default defineNuxtPlugin(() => {
               if (!start) start = timestamp
               const progress = Math.min((timestamp - start) / duration, 1)
               const ease = 0.5 - Math.cos(progress * Math.PI) / 2
-              window.scrollTo(0, startY + distance * ease)
+              originalScrollTo(0, startY + distance * ease)
 
               if (progress < 1) {
                 requestAnimationFrame(step)
@@ -50,15 +55,20 @@ export default defineNuxtPlugin(() => {
 
             requestAnimationFrame(step)
           }
-          else {
-            originalScrollTo.call(window, options as number, y)
+          else if (typeof optionsOrX === 'number' && typeof y === 'number') {
+            originalScrollTo(optionsOrX, y)
           }
-        }
+          else if (typeof optionsOrX === 'object') {
+            originalScrollTo(optionsOrX)
+          }
+        }) as typeof window.scrollTo
       })
   }
 
   // IntersectionObserver polyfill for older browsers
   if (!('IntersectionObserver' in window)) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore: intersection-observer polyfill has no types
     import('intersection-observer').catch(() => {
       console.warn('IntersectionObserver polyfill failed to load')
     })

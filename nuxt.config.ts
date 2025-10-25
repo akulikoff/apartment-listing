@@ -37,9 +37,6 @@ export default defineNuxtConfig({
 
   // Runtime config
   runtimeConfig: {
-    // Private keys (only available on server-side)
-    // apiSecret: '123',
-
     // Public keys (exposed to client-side)
     public: {
       apiBase: '/api',
@@ -110,12 +107,10 @@ export default defineNuxtConfig({
 
   // TypeScript configuration - полностью отключено
   typescript: {
-    strict: false,
-    typeCheck: false,
+    strict: true,
+    typeCheck: true,
     includeWorkspace: false,
   },
-
-  // Note: chunk optimization is handled by Vite/Rollup defaults in Nuxt 3
 
   // PostCSS configuration for autoprefixer
   postcss: {
